@@ -1,0 +1,470 @@
+.cursor-dot,
+.cursor-ring {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: 9999;
+    will-change: transform, opacity, width, height, border-color, background-color;
+    mix-blend-mode: difference;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    transform-origin: center;
+    transition: transform 0.1s cubic-bezier(0.2, 0.6, 0.3, 1),
+                background-color 0.2s cubic-bezier(0.2, 0.6, 0.3, 1),
+                opacity 0.15s cubic-bezier(0.2, 0.6, 0.3, 1);
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: dotPulse 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--primary-color);
+    margin: -12px 0 0 -12px;
+    transform-origin: center;
+    transition: transform 0.15s cubic-bezier(0.2, 0.6, 0.3, 1),
+                width 0.2s cubic-bezier(0.2, 0.6, 0.3, 1),
+                height 0.2s cubic-bezier(0.2, 0.6, 0.3, 1),
+                border-color 0.2s cubic-bezier(0.2, 0.6, 0.3, 1),
+                opacity 0.15s cubic-bezier(0.2, 0.6, 0.3, 1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: ringPulse 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Default state */
+.cursor-dot.default {
+    background-color: var(--primary-color);
+    transform: scale(1) translate3d(7, 0, 0);
+    animation: dotPulse 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.default {
+    border-color: var(--primary-color);
+    transform: scale(1) translate3d(0, 0, 0);
+    animation: ringPulse 2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Link state */
+.cursor-dot.link {
+    background-color: var(--link-color);
+    transform: scale(1.3) translate3d(0, 0, 0);
+    animation: linkDotPulse 1.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.link {
+    border-color: var(--link-color);
+    animation: linkRingPulse 1.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+    transform: scale(1.2) translate3d(0, 0, 0);
+}
+
+/* Button state */
+.cursor-dot.button {
+    background-color: var(--button-color);
+    transform: scale(1.5) translate3d(0, 0, 0);
+    animation: buttonDotPulse 0.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.button {
+    border-color: var(--button-color);
+    width: 40px;
+    height: 40px;
+    margin: -16px 0 0 -16px;
+    transform: scale(1.3) translate3d(0, 0, 0);
+    animation: buttonRingPulse 0.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Input state */
+.cursor-dot.input {
+    background-color: var(--input-color);
+    transform: scale(0.8) translate3d(0, 0, 0);
+    animation: inputDotPulse 1.5s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.input {
+    border-color: var(--input-color);
+    width: 24px;
+    height: 24px;
+    margin: -8px 0 0 -8px;
+    transform: scale(0.9) translate3d(0, 0, 0);
+    animation: inputRingPulse 1.5s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Draggable state */
+.cursor-dot.draggable {
+    background-color: var(--drag-color);
+    transform: scale(1.4) translate3d(0, 0, 0);
+    animation: dragDotPulse 0.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.draggable {
+    border-color: var(--drag-color);
+    animation: dragRingPulse 0.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+    transform: scale(1.2) translate3d(0, 0, 0);
+}
+
+/* Dragging state */
+.cursor-dot.dragging {
+    background-color: var(--drag-active-color);
+    transform: scale(1.7) translate3d(0, 0, 0);
+    animation: draggingDotPulse 0.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.dragging {
+    border-color: var(--drag-active-color);
+    width: 48px;
+    height: 48px;
+    margin: -20px 0 0 -20px;
+    opacity: 0.4;
+    transform: scale(1.4) translate3d(0, 0, 0);
+    animation: draggingRingPulse 0.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Clickable state */
+.cursor-dot.clickable {
+    background-color: var(--accent-color);
+    transform: scale(1.4) translate3d(0, 0, 0);
+    animation: clickableDotPulse 1s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.clickable {
+    border-color: var(--accent-color);
+    animation: clickableRingPulse 1s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+    transform: scale(1.2) translate3d(0, 0, 0);
+}
+
+/* Hover state */
+.cursor-dot.hover {
+    background-color: var(--hover-color);
+    transform: scale(1.3) translate3d(0, 0, 0);
+    animation: hoverDotPulse 1.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+.cursor-ring.hover {
+    border-color: var(--hover-color);
+    width: 36px;
+    height: 36px;
+    margin: -14px 0 0 -14px;
+    transform: scale(1.2) translate3d(0, 0, 0);
+    animation: hoverRingPulse 1.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Click effects */
+.cursor-dot.clicking {
+    transform: scale(0.7) translate3d(0, 0, 0);
+    background-color: var(--success-color);
+    animation: clickingDotPulse 0.3s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+.cursor-ring.clicking {
+    transform: scale(1.5) translate3d(0, 0, 0);
+    border-color: var(--success-color);
+    opacity: 0.2;
+    animation: clickingRingPulse 0.3s cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+}
+
+/* Hidden state */
+.cursor-dot.hidden,
+.cursor-ring.hidden {
+    opacity: 0;
+    transform: scale(0.5) translate3d(0, 0, 0);
+    animation: none;
+}
+
+/* Base animations */
+@keyframes dotPulse {
+    0%, 100% {
+        transform: scale(1) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes ringPulse {
+    0%, 100% {
+        transform: scale(1) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.05) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Link animations */
+@keyframes linkDotPulse {
+    0%, 100% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes linkRingPulse {
+    0%, 100% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Button animations */
+@keyframes buttonDotPulse {
+    0%, 100% {
+        transform: scale(1.5) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.6) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes buttonRingPulse {
+    0%, 100% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Input animations */
+@keyframes inputDotPulse {
+    0%, 100% {
+        transform: scale(0.8) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.9) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes inputRingPulse {
+    0%, 100% {
+        transform: scale(0.9) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Draggable animations */
+@keyframes dragDotPulse {
+    0%, 100% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes dragRingPulse {
+    0%, 100% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Dragging animations */
+@keyframes draggingDotPulse {
+    0%, 100% {
+        transform: scale(1.7) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.8) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes draggingRingPulse {
+    0%, 100% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.5) translate3d(0, 0, 0);
+        opacity: 0.5;
+    }
+}
+
+/* Clickable animations */
+@keyframes clickableDotPulse {
+    0%, 100% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes clickableRingPulse {
+    0%, 100% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Hover animations */
+@keyframes hoverDotPulse {
+    0%, 100% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+@keyframes hoverRingPulse {
+    0%, 100% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.3) translate3d(0, 0, 0);
+        opacity: 0.9;
+    }
+}
+
+/* Clicking animations */
+@keyframes clickingDotPulse {
+    0% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.7) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4) translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes clickingRingPulse {
+    0% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5) translate3d(0, 0, 0);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1.2) translate3d(0, 0, 0);
+        opacity: 0.8;
+    }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .cursor-dot,
+    .cursor-ring {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .cursor-dot {
+        background-color: var(--primary-color-light);
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .cursor-ring {
+        border-color: var(--primary-color-light);
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.1));
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .cursor-dot.link {
+        background-color: var(--link-color-light);
+    }
+
+    .cursor-ring.link {
+        border-color: var(--link-color-light);
+    }
+
+    .cursor-dot.button {
+        background-color: var(--button-color-light);
+    }
+
+    .cursor-ring.button {
+        border-color: var(--button-color-light);
+    }
+
+    .cursor-dot.input {
+        background-color: var(--input-color-light);
+    }
+
+    .cursor-ring.input {
+        border-color: var(--input-color-light);
+    }
+
+    .cursor-dot.draggable {
+        background-color: var(--drag-color-light);
+    }
+
+    .cursor-ring.draggable {
+        border-color: var(--drag-color-light);
+    }
+
+    .cursor-dot.dragging {
+        background-color: var(--drag-active-color-light);
+    }
+
+    .cursor-ring.dragging {
+        border-color: var(--drag-active-color-light);
+    }
+}
+
+/* Disable custom cursor on touch devices */
+@media (hover: none) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none;
+    }
+} 

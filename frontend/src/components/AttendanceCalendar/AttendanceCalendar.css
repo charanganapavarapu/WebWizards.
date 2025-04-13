@@ -1,0 +1,224 @@
+.attendance-calendar {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-button {
+    background: var(--button-bg);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 8px;
+    font-size: 0.9rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.calendar-day.current-month {
+    background: var(--bg-secondary);
+}
+
+.calendar-day:not(.current-month) {
+    color: var(--text-disabled);
+}
+
+.calendar-day.today {
+    background: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+
+.calendar-day.selected {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.calendar-day:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-indicator {
+    position: absolute;
+    bottom: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.attendance-indicator.present {
+    background: var(--success-color);
+}
+
+.attendance-indicator.absent {
+    background: var(--error-color);
+}
+
+.attendance-indicator.late {
+    background: var(--warning-color);
+}
+
+.attendance-controls {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.attendance-controls h3 {
+    margin: 0 0 15px 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.attendance-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.attendance-buttons button {
+    flex: 1;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.attendance-buttons button.present {
+    background: var(--success-color);
+    color: white;
+}
+
+.attendance-buttons button.absent {
+    background: var(--error-color);
+    color: white;
+}
+
+.attendance-buttons button.late {
+    background: var(--warning-color);
+    color: white;
+}
+
+.attendance-buttons button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-item span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .attendance-calendar {
+        background: var(--card-bg-dark);
+    }
+
+    .calendar-day.current-month {
+        background: var(--bg-secondary-dark);
+    }
+
+    .attendance-controls {
+        background: var(--bg-secondary-dark);
+    }
+
+    .nav-button {
+        background: var(--button-bg-dark);
+    }
+
+    .nav-button:hover {
+        background: var(--button-hover-dark);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .attendance-calendar {
+        padding: 15px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar-day {
+        font-size: 0.8rem;
+    }
+
+    .attendance-buttons {
+        flex-direction: column;
+    }
+
+    .attendance-legend {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+} 

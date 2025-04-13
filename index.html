@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBU Learning Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="logo.png" alt="MBU Logo" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#attendance"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                <li><a href="#assessments"><i class="fas fa-tasks"></i> Assessments</a></li>
+                <li><a href="#learn-to-earn"><i class="fas fa-coins"></i> Learn to Earn</a></li>
+                <li><a href="#code-editor"><i class="fas fa-code"></i> Code Editor</a></li>
+                <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="landing.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-profile">
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </span>
+                    <div class="profile">
+                        <img src="pfp.png" alt="Profile" class="profile-pic">
+                        <span id="userName">John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <h1>Welcome to MBU Learning Management System</h1>
+                
+                <div class="quick-stats">
+                    <!-- Stats will be dynamically updated based on role -->
+                </div>
+
+                <!-- Role-specific content will be loaded here -->
+                <div id="role-specific-content"></div>
+
+                <div id="learn-to-earn" class="section">
+                    <h2>Learn to Earn</h2>
+                    <div class="learn-to-earn-container">
+                        <div class="token-balance">
+                            <h3>Your Token Balance</h3>
+                            <div class="balance-display">
+                                <i class="fas fa-coins"></i>
+                                <span id="tokenCount">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="challenges-grid">
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Python Basics</h3>
+                                    <span class="reward">+50 Tokens</span>
+                                </div>
+                                <p>Complete 5 basic Python programming challenges</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                    <span class="progress-text">0/5 Completed</span>
+                                </div>
+                                <button class="action-btn start-challenge">Start Challenge</button>
+                            </div>
+
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Data Structures</h3>
+                                    <span class="reward">+100 Tokens</span>
+                                </div>
+                                <p>Implement and solve problems using common data structures</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                    <span class="progress-text">0/8 Completed</span>
+                                </div>
+                                <button class="action-btn start-challenge">Start Challenge</button>
+                            </div>
+
+                            <div class="challenge-card">
+                                <div class="challenge-header">
+                                    <h3>Algorithms</h3>
+                                    <span class="reward">+150 Tokens</span>
+                                </div>
+                                <p>Master sorting and searching algorithms</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar" style="width: 0%"></div>
+                                    <span class="progress-text">0/6 Completed</span>
+                                </div>
+                                <button class="action-btn start-challenge">Start Challenge</button>
+                            </div>
+                        </div>
+
+                        <div class="rewards-section">
+                            <h3>Redeem Your Tokens</h3>
+                            <div class="rewards-grid">
+                                <div class="reward-card">
+                                    <i class="fas fa-gift"></i>
+                                    <h4>Course Discount</h4>
+                                    <p>1000 Tokens</p>
+                                    <button class="action-btn redeem-btn">Redeem</button>
+                                </div>
+                                <div class="reward-card">
+                                    <i class="fas fa-certificate"></i>
+                                    <h4>Certificate</h4>
+                                    <p>500 Tokens</p>
+                                    <button class="action-btn redeem-btn">Redeem</button>
+                                </div>
+                                <div class="reward-card">
+                                    <i class="fas fa-book"></i>
+                                    <h4>Premium Content</h4>
+                                    <p>300 Tokens</p>
+                                    <button class="action-btn redeem-btn">Redeem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Editor Section -->
+                <div class="code-editor-section">
+                    <h2>Code Editor</h2>
+                    <div class="editor-container">
+                        <div class="language-selector">
+                            <select id="language-select">
+                                <option value="python">Python</option>
+                                <option value="java">Java</option>
+                                <option value="javascript">JavaScript</option>
+                                <option value="cpp">C++</option>
+                            </select>
+                        </div>
+                        <textarea id="code-area" placeholder="Write your code here..."></textarea>
+                        <button class="run-btn"><i class="fas fa-play"></i> Run Code</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

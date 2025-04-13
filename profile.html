@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBU LMS - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="mbu-logo.png" alt="MBU Logo" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#attendance"><i class="fas fa-calendar-check"></i> Attendance</a></li>
+                <li><a href="#assessments"><i class="fas fa-tasks"></i> Assessments</a></li>
+                <li><a href="#code-editor"><i class="fas fa-code"></i> Code Editor</a></li>
+                <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="landing.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-profile">
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </span>
+                    <div class="profile">
+                        <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                        <span id="userName">John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <div class="profile-header">
+                    <div class="profile-cover"></div>
+                    <div class="profile-info">
+                        <img src="https://via.placeholder.com/150" alt="Profile" class="large-profile-pic">
+                        <div class="profile-details">
+                            <h1 id="profileName">John Doe</h1>
+                            <p id="roleType">Student</p>
+                            <p id="department">Computer Science Department</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-sections">
+                    <div class="profile-section">
+                        <h2>Personal Information</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Email</label>
+                                <p>john.doe@mbu.edu</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Student ID</label>
+                                <p>MBU2024CS101</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Phone</label>
+                                <p>+1 234 567 8900</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Joining Date</label>
+                                <p>August 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2>Academic Progress</h2>
+                        <div class="progress-stats">
+                            <div class="stat-item">
+                                <h3>Current GPA</h3>
+                                <p class="stat-value">3.8</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>Completed Credits</h3>
+                                <p class="stat-value">85</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>Attendance Rate</h3>
+                                <p class="stat-value">92%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2>Current Courses</h2>
+                        <div class="courses-grid">
+                            <div class="course-card">
+                                <h3>Advanced Programming</h3>
+                                <p>CSE401 - Prof. Smith</p>
+                                <div class="course-progress">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                                <p class="progress-text">75% Complete</p>
+                            </div>
+                            <div class="course-card">
+                                <h3>Data Structures</h3>
+                                <p>CSE301 - Prof. Johnson</p>
+                                <div class="course-progress">
+                                    <div class="progress-bar" style="width: 60%"></div>
+                                </div>
+                                <p class="progress-text">60% Complete</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html> 

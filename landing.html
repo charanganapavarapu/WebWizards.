@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBU Learning Management System - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <div class="landing-container">
+        <div class="logo-section">
+            <img src="logo.png" alt="MBU Logo" class="landing-logo">
+            <h1>Welcome to MBU Learning Management System</h1>
+        </div>
+        
+        <div class="role-selection">
+            <h2>Select Your Role</h2>
+            <div class="role-cards">
+                <div class="role-card" onclick="selectRole('student')">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Student</h3>
+                    <p>Access your courses, assignments, and track your progress</p>
+                    <button class="role-btn">Enter as Student</button>
+                </div>
+                <div class="role-card" onclick="selectRole('faculty')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Faculty</h3>
+                    <p>Manage courses, assignments, and student progress</p>
+                    <button class="role-btn">Enter as Faculty</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="landing.js"></script>
+</body>
+</html> 
